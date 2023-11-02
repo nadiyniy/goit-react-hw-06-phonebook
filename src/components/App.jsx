@@ -4,8 +4,11 @@ import Filter from './filter/Filter';
 import ContactList from './contactList/ContactList';
 import Notification from './notifications/Notification';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
 
@@ -16,6 +19,7 @@ export const App = () => {
   };
 
   const handelOnFilter = e => {
+    dispatch();
     setFilter(e.target.value);
   };
 
