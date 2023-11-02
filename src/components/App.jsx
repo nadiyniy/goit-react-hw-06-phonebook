@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 
 export const App = () => {
   const dispatch = useDispatch();
+  console.log(dispatch);
 
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState('');
@@ -19,7 +20,6 @@ export const App = () => {
   };
 
   const handelOnFilter = e => {
-    dispatch();
     setFilter(e.target.value);
   };
 
