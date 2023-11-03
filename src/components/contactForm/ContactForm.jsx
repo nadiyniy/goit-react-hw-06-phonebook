@@ -1,11 +1,28 @@
 import React from 'react';
 import { StyledContactForm } from './ContactForm.styled';
-import propTypes from 'prop-types';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/actions';
+import { selectContacts } from 'redux/selectors';
 
-const ContactForm = ({ onAddContact, contacts }) => {
+const ContactForm = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
+  const contacts = useSelector(selectContacts);
+  const dispatch = useDispatch();
+
+  const handleAddContact = newContact => {
+    const isDublicate = contacts.find(
+      contact => contact.name === newContact.name
+    );
+
+    if (isDublicate) {
+      alert(`${newContact.name} is already in contacts.`);
+    } else {
+      dispatch(addContact(newContact));
+    }
+  };
 
   const handelOnChange = e => {
     const { name, value } = e.target;
@@ -30,8 +47,7 @@ const ContactForm = ({ onAddContact, contacts }) => {
       return;
     }
 
-    onAddContact(newContact);
-
+    handleAddContact(newContact);
     setName('');
     setNumber('');
   };
@@ -62,11 +78,6 @@ const ContactForm = ({ onAddContact, contacts }) => {
       <button>Add contact</button>
     </StyledContactForm>
   );
-};
-
-ContactForm.propTypes = {
-  onAddContact: propTypes.func.isRequired,
-  contacts: propTypes.array.isRequired,
 };
 
 export default ContactForm;

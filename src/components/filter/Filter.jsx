@@ -1,12 +1,20 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { StyledFilterDiv } from './Filter.styled';
-import propTypes from 'prop-types';
+import { selectFilter } from 'redux/selectors';
+import { filterContactAC } from 'redux/actions';
 
-const Filter = ({ filter, onFilterChange }) => {
+const Filter = () => {
+  const filter = useSelector(selectFilter);
+  const dispatch = useDispatch();
+  const handelOnFilter = e => {
+    dispatch(filterContactAC(e.target.value));
+  };
+
   return (
     <StyledFilterDiv>
       <h3>Find contact by name</h3>
       <input
-        onChange={onFilterChange}
+        onChange={handelOnFilter}
         value={filter}
         placeholder="Enter filter value"
         name="filter"
@@ -14,8 +22,5 @@ const Filter = ({ filter, onFilterChange }) => {
     </StyledFilterDiv>
   );
 };
-Filter.propTypes = {
-  filter: propTypes.string.isRequired,
-  onFilterChange: propTypes.func.isRequired,
-};
+
 export default Filter;

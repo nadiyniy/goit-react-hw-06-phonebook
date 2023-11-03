@@ -1,22 +1,38 @@
+import { useDispatch, useSelector } from 'react-redux';
 import { StyledListUl } from './ContactList.styled';
-import propTypes from 'prop-types';
+import { selectContacts, selectFilter } from 'redux/selectors';
+import { deleteContact } from 'redux/actions';
 
-const ContactList = ({ contacts, deletedContact }) => {
+const ContactList = () => {
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+
+  const dispatch = useDispatch();
+
+  const handleDeleteContact = id => {
+    dispatch(deleteContact(id));
+  };
+
+  const getFilterContacts = () => {
+    return contacts.filter(contact =>
+      contact.name.trim().toLowerCase().includes(filter.trim().toLowerCase())
+    );
+  };
+
+  const filterContact = getFilterContacts();
+
   return (
     <StyledListUl>
-      {contacts.map(contact => (
+      {filterContact.map(contact => (
         <li key={contact.id}>
           {contact.name}: {contact.number}
-          <button onClick={() => deletedContact(contact.id)}>Delete</button>
+          <button onClick={() => handleDeleteContact(contact.id)}>
+            Delete
+          </button>
         </li>
       ))}
     </StyledListUl>
   );
-};
-
-ContactList.propTypes = {
-  contacts: propTypes.array.isRequired,
-  deletedContact: propTypes.func.isRequired,
 };
 
 export default ContactList;
