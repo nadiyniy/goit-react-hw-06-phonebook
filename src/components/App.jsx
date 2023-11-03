@@ -5,10 +5,9 @@ import ContactList from './contactList/ContactList';
 import Notification from './notifications/Notification';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts, selectFilter } from 'redux/selectors';
-import { deleteContact } from 'redux/actions';
+import { selectContacts } from 'redux/selectors';
 import { LOCAL_CONTACT } from 'redux/constants';
-import { MainWrapper } from './App.styled';
+import { StyledMainWrapper } from './App.styled';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
@@ -26,7 +25,7 @@ export const App = () => {
   }, [contacts]);
 
   return (
-    <MainWrapper>
+    <StyledMainWrapper>
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
@@ -36,6 +35,6 @@ export const App = () => {
       ) : (
         <Notification message={'No contact'} />
       )}
-    </MainWrapper>
+    </StyledMainWrapper>
   );
 };
