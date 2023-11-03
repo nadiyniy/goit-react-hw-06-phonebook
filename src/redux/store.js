@@ -1,9 +1,4 @@
-import { combineReducers } from 'redux';
-import { contactReducer } from './reducer';
 import { configureStore } from '@reduxjs/toolkit';
+import { contactReducer } from './contactsSlice';
 
-const rootReducer = combineReducers({
-  phonebook: contactReducer,
-});
-
-export const store = configureStore({ reducer: rootReducer });
+export const store = configureStore({ reducer: { phonebook: contactReducer } });

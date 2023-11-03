@@ -6,8 +6,8 @@ import Notification from './notifications/Notification';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
-import { LOCAL_CONTACT } from 'redux/constants';
 import { StyledMainWrapper } from './App.styled';
+import { LOCAL_CONTACT } from 'redux/contactsSlice';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
