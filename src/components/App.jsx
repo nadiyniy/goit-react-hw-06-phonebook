@@ -3,11 +3,18 @@ import ContactForm from './contactForm/ContactForm';
 import Filter from './filter/Filter';
 import ContactList from './contactList/ContactList';
 import Notification from './notifications/Notification';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectContacts, selectFilter } from 'redux/selectors';
+import { addContact, deleteContact, filterContactAC } from 'redux/actions';
+import { LOCAL_CONTACT } from 'redux/constants';
 
 export const App = () => {
-  const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState('');
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+  const dispatch = useDispatch();
+
+  // const [filter, setFilter] = useState('');
 
   const getFilterContacts = () => {
     return contacts.filter(contact =>
@@ -16,7 +23,8 @@ export const App = () => {
   };
 
   const handelOnFilter = e => {
-    setFilter(e.target.value);
+    // setFilter(e.target.value);
+    dispatch(filterContactAC(e.target.value));
   };
 
   const handleAddContact = newContact => {
@@ -27,27 +35,26 @@ export const App = () => {
     if (dublicate) {
       alert(`${newContact.name} is already in contacts.`);
     } else {
-      setContacts([newContact, ...contacts]);
+      dispatch(addContact(newContact));
     }
   };
   const handleDeleteContact = id => {
-    setContacts(prevContacts =>
-      prevContacts.filter(contact => contact.id !== id)
-    );
+    dispatch(deleteContact(id));
   };
 
   useEffect(() => {
     const contacts = JSON.parse(window.localStorage.getItem('contacts'));
     if (contacts?.length) {
-      setContacts(contacts);
+      dispatch({ type: LOCAL_CONTACT, payload: contacts });
     }
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
   const filterContact = getFilterContacts();
+
   return (
     <div
       style={{
