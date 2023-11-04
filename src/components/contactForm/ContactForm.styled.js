@@ -3,7 +3,8 @@ import styled from 'styled-components';
 export const StyledContactForm = styled.form`
   min-width: 400px;
 
-  background-color: lightcoral;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
   display: flex;
   flex-direction: column;
   gap: 20px;

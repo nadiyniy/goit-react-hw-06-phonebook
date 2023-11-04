@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const StyledListUl = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 5px;
   padding: 0;
   & li {
     min-width: 400px;
 
-    background-color: lightcoral;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
     display: flex;
     gap: 20px;
     padding: 5px 20px;
