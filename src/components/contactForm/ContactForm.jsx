@@ -69,7 +69,7 @@ const ContactForm = () => {
         <input
           onChange={handelOnChange}
           value={number}
-          placeholder="number"
+          placeholder="Enter number"
           type="tel"
           name="number"
           required

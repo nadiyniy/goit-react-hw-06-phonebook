@@ -12,11 +12,11 @@ const Filter = () => {
 
   return (
     <StyledFilterDiv>
-      <h3>Find contact by name</h3>
+      <p>Find contact by name</p>
       <input
         onChange={handelOnFilter}
         value={filter}
-        placeholder="Enter filter value"
+        placeholder="Enter search name"
         name="filter"
       ></input>
     </StyledFilterDiv>

@@ -1,32 +1,40 @@
 import styled from 'styled-components';
 
 export const StyledContactForm = styled.form`
-  min-width: 400px;
-
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
-  justify-content: center;
-  align-items: center;
+  padding: 5px 10px;
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
 
-  & label {
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
-  & input {
-    display: block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
+  input {
+    padding: 5px 15px;
+    max-width: 420px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-bottom: 10px;
   }
-  & button {
+  button {
+    width: 120px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     padding: 5px 10px;
-    border-radius: 5px;
+    height: 28px;
     cursor: pointer;
-    &:hover {
+    border-radius: 5px;
+    border: 1px solid black;
+
+    &:hover,
+    &:focus {
       box-shadow: 0 0 1px 1px black;
     }
   }

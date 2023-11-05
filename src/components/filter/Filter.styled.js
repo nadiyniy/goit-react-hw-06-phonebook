@@ -1,24 +1,25 @@
 import styled from 'styled-components';
 
 export const StyledFilterDiv = styled.div`
-  min-width: 400px;
-
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 10px 20px;
-  border: 1px solid black;
+  gap: 5px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+  padding: 5px 10px;
+  max-width: 420px;
+  div {
+  }
+  p {
+    margin-bottom: 10px;
+  }
 
-  & input {
-    display: block;
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
+  input {
+    padding: 5px 15px;
+    max-width: 420px;
+    border-radius: 10px;
+    border: 1px solid black;
+    margin-bottom: 10px;
   }
 `;

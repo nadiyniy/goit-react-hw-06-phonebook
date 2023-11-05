@@ -2,25 +2,32 @@ import styled from 'styled-components';
 
 export const StyledListUl = styled.ul`
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  max-width: 420px;
   gap: 5px;
-  padding: 0;
-  & li {
-    min-width: 400px;
-
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 0 auto;
+  li {
+    padding: 5px 0;
+    border-bottom: 1px solid black;
     display: flex;
-    gap: 20px;
-    padding: 5px 20px;
-    border: 1px solid black;
-    border-radius: 10px;
     justify-content: space-between;
     align-items: center;
-    list-style: none;
-    margin: 0;
-    & button {
+    & {
+    }
+    button {
+      padding: 5px 10px;
+      height: 28px;
       cursor: pointer;
+      border-radius: 5px;
+      border: 1px solid black;
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 1px 1px black;
+      }
     }
   }
 `;
