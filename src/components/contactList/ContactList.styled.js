@@ -10,6 +10,8 @@ export const StyledListUl = styled.ul`
   border-radius: 10px;
   padding: 5px 10px;
   margin: 0 auto;
+  height: 35vh;
+  overflow: auto;
   li {
     padding: 5px 0;
     border-bottom: 1px solid black;
