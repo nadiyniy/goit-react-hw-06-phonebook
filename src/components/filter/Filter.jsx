@@ -12,7 +12,7 @@ const Filter = () => {
 
   return (
     <StyledFilterDiv>
-      {/* <p>Find contact by name</p> */}
+      <h2>Contacts</h2>
       <input
         onChange={handelOnFilter}
         value={filter}

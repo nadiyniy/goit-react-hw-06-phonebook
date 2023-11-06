@@ -18,14 +18,13 @@ export const App = () => {
           <GrContactInfo /> <span>Phonebook</span>
         </h1>
         <ContactForm />
-        <h2>Contacts</h2>
-        <Filter />
+        {contacts.length ? <Filter /> : null}
       </div>
       <div>
         {contacts.length ? (
           <ContactList />
         ) : (
-          <Notification message={'No contact...'} />
+          <Notification message={'No existing contacts...'} />
         )}
       </div>
     </StyledMainWrapper>
