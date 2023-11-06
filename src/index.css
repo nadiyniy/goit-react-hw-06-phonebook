@@ -27,7 +27,7 @@ body {
   background-image: url('./image/phonebook.jpeg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size: auto 100%;
   /* background-position: center; */
 }
 
