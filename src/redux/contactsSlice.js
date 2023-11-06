@@ -30,17 +30,17 @@ const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
   reducers: {
-    addContact(state, { payload }) {
+    addContact: (state, { payload }) => {
       state.contacts.push(payload);
       state.filter = '';
     },
 
-    deleteContact(state, { payload }) {
+    deleteContact: (state, { payload }) => {
       const index = state.contacts.findIndex(contact => contact.id === payload);
       state.contacts.splice(index, 1);
     },
 
-    filterContactAC(state, { payload }) {
+    filterContactAC: (state, { payload }) => {
       state.filter = payload;
     },
   },
