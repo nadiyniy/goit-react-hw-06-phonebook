@@ -4,12 +4,14 @@ import Filter from './filter/Filter';
 import ContactList from './contactList/ContactList';
 import Notification from './notifications/Notification';
 import { useSelector } from 'react-redux';
-import { selectContacts } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 import { StyledMainWrapper } from './App.styled';
 import { GrContactInfo } from 'react-icons/gr';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
+  const findContact = contacts.filter(contact => contact.name.includes(filter));
 
   return (
     <StyledMainWrapper>
@@ -21,7 +23,7 @@ export const App = () => {
         {contacts.length ? <Filter /> : null}
       </div>
       <div>
-        {contacts.length ? (
+        {contacts.length && findContact.length ? (
           <ContactList />
         ) : (
           <Notification message={'No existing contacts...'} />
