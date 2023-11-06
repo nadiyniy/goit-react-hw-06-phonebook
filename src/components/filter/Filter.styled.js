@@ -16,6 +16,8 @@ export const StyledFilterDiv = styled.div`
   }
 
   input {
+    height: 40px;
+
     padding: 5px 15px;
     max-width: 420px;
     border-radius: 10px;

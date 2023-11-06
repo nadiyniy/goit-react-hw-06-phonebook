@@ -16,6 +16,7 @@ export const StyledContactForm = styled.form`
     gap: 5px;
   }
   input {
+    height: 40px;
     padding: 5px 15px;
     max-width: 420px;
     border-radius: 10px;
@@ -24,6 +25,8 @@ export const StyledContactForm = styled.form`
   }
   button {
     width: 120px;
+    height: 40px;
+
     display: inline-flex;
     justify-content: center;
     align-items: center;
