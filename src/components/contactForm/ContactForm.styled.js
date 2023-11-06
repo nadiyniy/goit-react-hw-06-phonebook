@@ -3,12 +3,6 @@ import styled from 'styled-components';
 export const StyledContactForm = styled.form`
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  padding: 5px 10px;
-  max-width: 420px;
-  margin: 0 auto;
-  width: 100%;
 
   label {
     display: flex;

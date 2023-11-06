@@ -5,10 +5,7 @@ export const StyledFilterDiv = styled.div`
   flex-direction: column;
   gap: 5px;
   margin-bottom: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 10px;
-  padding: 5px 10px;
-  max-width: 420px;
+
   div {
   }
   p {
