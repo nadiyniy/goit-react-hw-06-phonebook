@@ -11,7 +11,9 @@ import { GrContactInfo } from 'react-icons/gr';
 export const App = () => {
   const contacts = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
-  const findContact = contacts.filter(contact => contact.name.includes(filter));
+  const findContact = contacts.filter(contact =>
+    contact.name.trim().toLowerCase().includes(filter.trim().toLowerCase())
+  );
 
   return (
     <StyledMainWrapper>
